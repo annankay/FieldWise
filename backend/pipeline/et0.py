@@ -41,3 +41,18 @@ def penman_monteith(df: pd.DataFrame, lat: float, elev: float) -> pd.Series:
     et0 = (0.408 * delta * rn + gamma * 900 / (tmean + 273) * u2 * (es - ea)) / (delta + gamma * (1 + 0.34 * u2))
     return pd.Series(np.clip(et0, 0, 15), index=df.index, name="et0")
 
+def hargreaves(df: pd.DataFrame, lat: float) -> pd.Series:
+    """Temperature-only ET0 estimate (used when humidity/wind/radiation are missing)."""
+    tmax, tmin = df["tmax"].to_numpy(float), df["tmin"].to_numpy(float)
+    ra = extraterrestrial_radiation(lat, df.index.dayofyear.to_numpy())
+    et0 = 0.0023 * ((tmax + tmin) / 2 + 17.8) * np.sqrt(np.clip(tmax - tmin, 0, None)) * ra * 0.408
+    return pd.Series(np.clip(et0, 0, 15), index=df.index, name="et0")
+
+def compute_et0(df: pd.DataFrame, lat: float, elev: float) -> pd.Series:
+    needed = {"tmax", "tmin", "rh", "wind", "rad"}
+    if needed.issubset(df.columns) and df[list(needed)].notna().mean().min() > 0.9:
+        return penman_monteith(df, lat, elev)
+    return hargreaves(df, lat)
+
+
+
