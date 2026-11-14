@@ -1,1 +1,1971 @@
-
+{
+ "_note": "Indicative crop traits (FAO ECOCROP / FAO-56 style). Scores are relative and MUST be reviewed by local agronomists. Crops are offered wherever this field's own climate suits them (no fixed climate zones). names: local names (fr complete; tw/ha drafts needing native-speaker review).",
+ "fields": {
+  "duration_m": "months from sowing to harvest/termination",
+  "t_opt": "optimal mean-temperature range °C",
+  "t_base": "base temperature for growing degree days °C",
+  "heat_thr": "daily max temperature °C above which flowering/yield suffers",
+  "overwinter": "true if the crop can sit dormant through cold months",
+  "drought_tol": "0 = very sensitive, 1 = very tolerant",
+  "n_fix": "approx. kg N/ha/season fixed (legumes)",
+  "n_demand": "approx. kg N/ha/season needed",
+  "residue": "residue / biomass returned to soil (0-1)",
+  "root_depth": "typical rooting depth m",
+  "cover": "ground-cover / erosion protection while growing (0-1)",
+  "hand_ok": "can be managed with hand tools / animal traction"
+   },
+ "crops": [
+  {
+   "id": "maize",
+   "name": "Maize",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    18,
+    32
+   ],
+   "t_base": 10,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.3,
+    1.2,
+    0.6
+   ],
+   "drought_tol": 0.35,
+   "waterlog_tol": 0.3,
+   "n_fix": 0,
+   "n_demand": 120,
+   "residue": 0.7,
+   "root_depth": 1.2,
+   "cover": 0.55,
+   "forage": 0.5,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    7.5
+   ],
+   "pests": "Fall armyworm, stem borers, Striga weed",
+   "roles": [
+    "staple"
+   ],
+   "names": {
+    "fr": "Maïs",
+    "tw": "Aburow",
+    "ha": "Masara"
+   },
+   "icon": "🌽"
+  },
+  {
+   "id": "sorghum",
+   "name": "Sorghum",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.3,
+    1.05,
+    0.55
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.4,
+   "n_fix": 0,
+   "n_demand": 90,
+   "residue": 0.75,
+   "root_depth": 1.6,
+   "cover": 0.55,
+   "forage": 0.7,
+   "market": 0.6,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    8.0
+   ],
+   "pests": "Shoot fly, midge, birds",
+   "roles": [
+    "staple",
+    "drought",
+    "forage",
+    "deep_root"
+   ],
+   "names": {
+    "fr": "Sorgho",
+    "ha": "Dawa"
+   },
+   "icon": "🌾"
+  },
+  {
+   "id": "millet",
+   "name": "Pearl millet",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 3,
+   "t_opt": [
+    22,
+    36
+   ],
+   "t_base": 12,
+   "heat_thr": 42,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.3,
+    1.0,
+    0.5
+   ],
+   "drought_tol": 0.85,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 70,
+   "residue": 0.6,
+   "root_depth": 1.5,
+   "cover": 0.5,
+   "forage": 0.5,
+   "market": 0.5,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Downy mildew, head miner",
+   "roles": [
+    "staple",
+    "drought"
+   ],
+   "names": {
+    "fr": "Mil",
+    "ha": "Gero"
+   },
+   "icon": "🌾"
+  },
+  {
+   "id": "rice_upland",
+   "name": "Upland rice",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    33
+   ],
+    "t_base": 10,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    1.05,
+    1.2,
+    0.9
+   ],
+   "drought_tol": 0.15,
+   "waterlog_tol": 0.9,
+   "n_fix": 0,
+   "n_demand": 90,
+   "residue": 0.6,
+   "root_depth": 0.6,
+   "cover": 0.5,
+   "forage": 0.3,
+   "market": 0.8,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.0,
+    7.0
+   ],
+   "pests": "Blast, stem borer, birds",
+   "roles": [
+    "staple",
+    "income"
+   ],
+   "names": {
+    "fr": "Riz pluvial",
+    "tw": "Ɛmo",
+    "ha": "Shinkafa"
+   },
+   "icon": "🍚"
+  },
+  {
+   "id": "wheat_winter",
+   "name": "Winter wheat (cold winters)",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 9,
+   "t_opt": [
+    10,
+    25
+   ],
+   "t_base": 0,
+   "heat_thr": 32,
+   "kill_temp": -20,
+   "overwinter": true,
+   "kc": [
+    0.4,
+    1.15,
+    0.3
+   ],
+   "drought_tol": 0.55,
+   "waterlog_tol": 0.3,
+   "n_fix": 0,
+   "n_demand": 110,
+   "residue": 0.8,
+   "root_depth": 1.5,
+   "cover": 0.7,
+   "forage": 0.5,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    6.0,
+    8.0
+   ],
+   "pests": "Hessian fly, rusts, wheat streak mosaic (green bridge)",
+   "roles": [
+    "staple",
+    "cover"
+   ],
+   "names": {
+    "fr": "Blé d'hiver"
+   },
+   "icon": "🌾"
+  },
+  {
+   "id": "wheat",
+   "name": "Wheat",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 5,
+   "t_opt": [
+    10,
+    25
+   ],
+   "t_base": 0,
+   "heat_thr": 32,
+   "kill_temp": -4,
+   "overwinter": false,
+   "kc": [
+    0.35,
+    1.15,
+    0.35
+   ],
+   "drought_tol": 0.5,
+   "waterlog_tol": 0.3,
+   "n_fix": 0,
+   "n_demand": 110,
+   "residue": 0.75,
+   "root_depth": 1.5,
+   "cover": 0.7,
+   "forage": 0.5,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    6.0,
+    8.0
+   ],
+   "pests": "Rusts, Septoria; spring/highland and Mediterranean wheat",
+   "roles": [
+    "staple"
+   ],
+   "names": {
+    "fr": "Blé",
+    "ha": "Alkama"
+   },
+   "icon": "🌾"
+  },
+  {
+   "id": "barley",
+   "name": "Barley",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    8,
+    25
+   ],
+   "t_base": 2,
+   "heat_thr": 30,
+   "kill_temp": -6,
+   "overwinter": false,
+   "kc": [
+    0.3,
+    1.15,
+    0.25
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.3,
+   "n_fix": 0,
+   "n_demand": 80,
+   "residue": 0.7,
+   "root_depth": 1.2,
+   "cover": 0.6,
+   "forage": 0.6,
+   "market": 0.55,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    6.0,
+    8.5
+   ],
+   "pests": "Net blotch, aphids (BYDV)",
+   "roles": [
+    "staple",
+    "forage"
+   ],
+   "names": {
+    "fr": "Orge"
+   },
+   "icon": "🌾"
+  },
+  {
+   "id": "cowpea",
+   "name": "Cowpea",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 3,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.05,
+    0.6
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.25,
+   "n_fix": 60,
+   "n_demand": 20,
+   "residue": 0.5,
+   "root_depth": 1.0,
+   "cover": 0.7,
+   "forage": 0.8,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    7.5
+   ],
+   "pests": "Aphids, thrips, Maruca pod borer; Striga-resistant varieties exist",
+   "roles": [
+    "nitrogen",
+    "forage",
+    "drought",
+    "income"
+   ],
+   "names": {
+    "fr": "Niébé",
+    "tw": "Adua",
+    "ha": "Wake"
+   },
+   "icon": "🫘"
+  },
+  {
+   "id": "groundnut",
+   "name": "Groundnut",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 4,
+   "t_opt": [
+    22,
+    33
+   ],
+   "t_base": 10,
+   "heat_thr": 36,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.15,
+    0.6
+   ],
+   "drought_tol": 0.55,
+   "waterlog_tol": 0.2,
+   "n_fix": 80,
+   "n_demand": 20,
+   "residue": 0.4,
+   "root_depth": 0.9,
+   "cover": 0.6,
+   "forage": 0.7,
+   "market": 0.85,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    7.0
+   ],
+   "pests": "Rosette virus, leaf spot; aflatoxin risk in storage",
+   "roles": [
+    "nitrogen",
+    "income",
+    "forage"
+   ],
+   "names": {
+    "fr": "Arachide",
+    "tw": "Nkateɛ",
+    "ha": "Gyaɗa"
+   },
+   "icon": "🥜"
+  },
+  {
+   "id": "soybean",
+   "name": "Soybean",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    32
+   ],
+   "t_base": 10,
+   "heat_thr": 36,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.15,
+    0.5
+   ],
+   "drought_tol": 0.45,
+   "waterlog_tol": 0.3,
+   "n_fix": 100,
+   "n_demand": 30,
+   "residue": 0.5,
+   "root_depth": 1.3,
+   "cover": 0.6,
+   "forage": 0.5,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+       ],
+   "ph": [
+    6.0,
+    7.5
+   ],
+   "pests": "Rust, pod-sucking bugs",
+   "roles": [
+    "nitrogen",
+    "income"
+   ],
+   "names": {
+    "fr": "Soja",
+    "tw": "Soya",
+    "ha": "Waken soya"
+   },
+   "icon": "🫘"
+  },
+  {
+   "id": "pigeon_pea",
+   "name": "Pigeon pea",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 7,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.0,
+    0.6
+   ],
+   "drought_tol": 0.85,
+   "waterlog_tol": 0.15,
+   "n_fix": 90,
+   "n_demand": 20,
+   "residue": 0.85,
+   "root_depth": 2.0,
+   "cover": 0.7,
+   "forage": 0.7,
+   "market": 0.45,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Pod borers, Fusarium wilt",
+   "roles": [
+    "nitrogen",
+    "deep_root",
+    "drought",
+    "forage"
+   ],
+   "names": {
+    "fr": "Pois d'Angole"
+   },
+   "icon": "🫛"
+  },
+  {
+   "id": "bambara",
+   "name": "Bambara groundnut",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.0,
+    0.5
+   ],
+   "drought_tol": 0.85,
+   "waterlog_tol": 0.2,
+   "n_fix": 40,
+   "n_demand": 10,
+   "residue": 0.35,
+   "root_depth": 0.9,
+   "cover": 0.55,
+   "forage": 0.4,
+   "market": 0.55,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.0,
+    6.5
+   ],
+   "pests": "Few major pests; leaf spot",
+   "roles": [
+    "nitrogen",
+    "drought"
+   ],
+   "names": {
+    "fr": "Voandzou",
+    "ha": "Gurjiya"
+   },
+   "icon": "🫘"
+  },
+  {
+   "id": "common_bean",
+   "name": "Common bean",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 3,
+   "t_opt": [
+    16,
+    28
+   ],
+   "t_base": 10,
+   "heat_thr": 30,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.15,
+    0.35
+   ],
+   "drought_tol": 0.3,
+   "waterlog_tol": 0.15,
+   "n_fix": 40,
+   "n_demand": 30,
+   "residue": 0.35,
+   "root_depth": 0.8,
+   "cover": 0.5,
+   "forage": 0.4,
+   "market": 0.7,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    6.0,
+    7.5
+   ],
+   "pests": "Bean fly, anthracnose",
+   "roles": [
+    "nitrogen",
+    "income"
+   ],
+   "names": {
+    "fr": "Haricot"
+   },
+   "icon": "🫘"
+  },
+  {
+   "id": "cassava",
+   "name": "Cassava",
+   "family": "euphorbiaceae",
+   "group": "root",
+   "duration_m": 10,
+   "t_opt": [
+    20,
+    34
+   ],
+   "t_base": 12,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.3,
+    0.9,
+    0.5
+   ],
+   "drought_tol": 0.85,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 60,
+   "residue": 0.4,
+   "root_depth": 1.0,
+   "cover": 0.6,
+   "forage": 0.3,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    4.5,
+    7.5
+   ],
+   "pests": "Cassava mosaic & brown streak viruses, mealybug",
+   "roles": [
+    "staple",
+    "drought",
+    "income"
+   ],
+   "names": {
+    "fr": "Manioc",
+    "tw": "Bankye",
+    "ha": "Rogo"
+   },
+   "icon": "🍠"
+  },
+  {
+   "id": "yam",
+   "name": "Yam",
+   "family": "dioscoreaceae",
+   "group": "root",
+   "duration_m": 8,
+   "t_opt": [
+    24,
+    32
+   ],
+   "t_base": 15,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.5,
+    1.1,
+    0.6
+   ],
+   "drought_tol": 0.5,
+   "waterlog_tol": 0.15,
+   "n_fix": 0,
+   "n_demand": 70,
+   "residue": 0.3,
+   "root_depth": 0.6,
+   "cover": 0.4,
+   "forage": 0.1,
+   "market": 0.85,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.5,
+    7.0
+   ],
+   "pests": "Nematodes, anthracnose; heavy labour for mounds and staking",
+   "roles": [
+    "staple",
+    "income"
+   ],
+   "names": {
+    "fr": "Igname",
+    "tw": "Bayerɛ",
+    "ha": "Doya"
+   },
+   "icon": "🍠"
+  },
+  {
+   "id": "sweet_potato",
+   "name": "Sweet potato",
+   "family": "convolvulaceae",
+   "group": "root",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    32
+   ],
+   "t_base": 10,
+   "heat_thr": 36,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.5,
+    1.15,
+    0.65
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 50,
+   "residue": 0.5,
+   "root_depth": 0.8,
+   "cover": 0.9,
+   "forage": 0.7,
+   "market": 0.65,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.0,
+    6.5
+   ],
+   "pests": "Sweet potato weevil, virus complex",
+   "roles": [
+    "cover",
+    "forage",
+    "income"
+   ],
+   "names": {
+    "fr": "Patate douce",
+    "ha": "Dankali"
+   },
+   "icon": "🍠"
+  },
+  {
+   "id": "mucuna",
+   "name": "Mucuna (velvet bean)",
+   "family": "fabaceae",
+   "group": "cover",
+   "duration_m": 5,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.0,
+    0.8
+   ],
+   "drought_tol": 0.7,
+   "waterlog_tol": 0.3,
+   "n_fix": 120,
+   "n_demand": 0,
+   "residue": 0.95,
+   "root_depth": 1.5,
+   "cover": 0.95,
+   "forage": 0.6,
+   "market": 0.15,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    4.5,
+    7.5
+   ],
+   "pests": "Few pests; can smother neighbours if unmanaged; raw seed is toxic (L-dopa)",
+   "roles": [
+    "cover",
+    "nitrogen"
+   ],
+   "names": {
+    "fr": "Mucuna"
+   },
+   "icon": "🌿"
+  },
+  {
+   "id": "sunn_hemp",
+   "name": "Sunn hemp",
+   "family": "fabaceae",
+   "group": "cover",
+   "duration_m": 3,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 10,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.0,
+    0.8
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.2,
+   "n_fix": 100,
+   "n_demand": 0,
+   "residue": 0.85,
+   "root_depth": 1.5,
+   "cover": 0.85,
+   "forage": 0.3,
+   "market": 0.25,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "turns woody if left too long (cut at flowering); bonus: suppresses root-knot nematodes",
+   "roles": [
+    "cover",
+    "nitrogen",
+    "deep_root"
+   ],
+   "names": {
+    "fr": "Crotalaire"
+   },
+   "icon": "🌿"
+  },
+  {
+   "id": "lablab",
+   "name": "Lablab",
+   "family": "fabaceae",
+   "group": "cover",
+   "duration_m": 5,
+   "t_opt": [
+    18,
+    32
+   ],
+   "t_base": 10,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.4,
+    1.0,
+    0.8
+   ],
+    "drought_tol": 0.8,
+   "waterlog_tol": 0.2,
+   "n_fix": 90,
+   "n_demand": 0,
+   "residue": 0.8,
+   "root_depth": 2.0,
+   "cover": 0.85,
+   "forage": 0.9,
+   "market": 0.4,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Pod borers",
+   "roles": [
+    "cover",
+    "nitrogen",
+    "forage",
+    "deep_root",
+    "drought"
+   ],
+   "names": {
+    "fr": "Lablab"
+   },
+   "icon": "🫛"
+  },
+  {
+   "id": "brachiaria",
+   "name": "Brachiaria (forage grass)",
+   "family": "poaceae",
+   "group": "forage",
+   "duration_m": 12,
+   "t_opt": [
+    20,
+    35
+   ],
+   "t_base": 12,
+   "heat_thr": 42,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.6,
+    0.95,
+    0.9
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.4,
+   "n_fix": 0,
+   "n_demand": 60,
+   "residue": 0.9,
+   "root_depth": 2.0,
+   "cover": 0.95,
+   "forage": 1.0,
+   "market": 0.45,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    4.5,
+    7.5
+   ],
+   "pests": "Spittlebug; hard to remove once established",
+   "roles": [
+    "forage",
+    "cover",
+    "deep_root"
+   ],
+   "names": {
+    "fr": "Brachiaria"
+   },
+   "icon": "🌱"
+  },
+  {
+   "id": "cereal_rye",
+   "name": "Cereal rye (cover)",
+   "family": "poaceae",
+   "group": "cover",
+   "duration_m": 6,
+   "t_opt": [
+    5,
+    22
+   ],
+   "t_base": 0,
+   "heat_thr": 30,
+   "kill_temp": -30,
+   "overwinter": true,
+   "kc": [
+    0.4,
+    1.0,
+    0.5
+   ],
+   "drought_tol": 0.7,
+   "waterlog_tol": 0.4,
+   "n_fix": 0,
+   "n_demand": 30,
+   "residue": 0.9,
+   "root_depth": 1.5,
+   "cover": 0.9,
+   "forage": 0.6,
+   "market": 0.2,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Terminate before seed set; can host some cereal diseases",
+   "roles": [
+    "cover"
+   ],
+   "names": {
+    "fr": "Seigle (couvert)"
+   },
+   "icon": "🌿"
+  },
+  {
+   "id": "hairy_vetch",
+   "name": "Hairy vetch (cover)",
+   "family": "fabaceae",
+   "group": "cover",
+   "duration_m": 7,
+   "t_opt": [
+    5,
+    24
+   ],
+   "t_base": 0,
+   "heat_thr": 30,
+   "kill_temp": -25,
+   "overwinter": true,
+   "kc": [
+    0.4,
+    1.0,
+    0.6
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.3,
+   "n_fix": 120,
+   "n_demand": 0,
+   "residue": 0.8,
+   "root_depth": 1.0,
+   "cover": 0.8,
+   "forage": 0.6,
+   "market": 0.15,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    7.5
+   ],
+   "pests": "Hard seed can become weedy",
+   "roles": [
+    "cover",
+    "nitrogen"
+   ],
+   "names": {
+    "fr": "Vesce velue"
+   },
+   "icon": "🌿"
+  },
+  {
+   "id": "alfalfa",
+   "name": "Alfalfa (lucerne)",
+   "family": "fabaceae",
+   "group": "forage",
+   "duration_m": 12,
+   "t_opt": [
+    15,
+    30
+   ],
+   "t_base": 5,
+   "heat_thr": 35,
+   "kill_temp": -25,
+   "overwinter": true,
+   "kc": [
+    0.4,
+    0.95,
+    0.9
+   ],
+   "drought_tol": 0.65,
+   "waterlog_tol": 0.2,
+   "n_fix": 150,
+   "n_demand": 0,
+   "residue": 0.6,
+   "root_depth": 3.0,
+   "cover": 0.85,
+   "forage": 1.0,
+   "market": 0.65,
+   "hand_ok": true,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    6.5,
+    8.0
+   ],
+   "pests": "Alfalfa weevil; needs good drainage",
+   "roles": [
+    "forage",
+    "nitrogen",
+    "deep_root"
+   ],
+   "names": {
+    "fr": "Luzerne"
+   },
+   "icon": "☘️"
+  },
+  {
+   "id": "sunflower",
+   "name": "Sunflower",
+   "family": "asteraceae",
+   "group": "oilseed",
+   "duration_m": 4,
+   "t_opt": [
+    18,
+    33
+   ],
+   "t_base": 8,
+   "heat_thr": 38,
+   "kill_temp": -2,
+   "overwinter": false,
+   "kc": [
+    0.35,
+    1.1,
+    0.35
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 70,
+   "residue": 0.6,
+   "root_depth": 2.0,
+   "cover": 0.5,
+   "forage": 0.3,
+   "market": 0.6,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    6.0,
+    7.5
+   ],
+   "pests": "Birds, head rot",
+   "roles": [
+    "deep_root",
+    "drought",
+    "income"
+   ],
+   "names": {
+    "fr": "Tournesol"
+   },
+   "icon": "🌻"
+  },
+  {
+   "id": "sesame",
+   "name": "Sesame",
+   "family": "pedaliaceae",
+   "group": "oilseed",
+   "duration_m": 3,
+   "t_opt": [
+    24,
+    35
+   ],
+   "t_base": 15,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.35,
+    1.1,
+    0.25
+   ],
+   "drought_tol": 0.8,
+   "waterlog_tol": 0.1,
+   "n_fix": 0,
+   "n_demand": 40,
+   "residue": 0.3,
+   "root_depth": 1.0,
+   "cover": 0.35,
+   "forage": 0.1,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    5.5,
+    8.0
+   ],
+   "pests": "Webworm; very sensitive to waterlogging",
+   "roles": [
+    "drought",
+    "income"
+   ],
+   "names": {
+    "fr": "Sésame",
+    "ha": "Riɗi"
+   },
+   "icon": "🌱"
+  },
+  {
+   "id": "canola",
+   "name": "Winter canola",
+   "family": "brassicaceae",
+   "group": "oilseed",
+   "duration_m": 9,
+   "t_opt": [
+    10,
+    25
+   ],
+   "t_base": 0,
+   "heat_thr": 32,
+   "kill_temp": -15,
+   "overwinter": true,
+   "kc": [
+    0.35,
+    1.15,
+    0.35
+   ],
+   "drought_tol": 0.5,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 120,
+   "residue": 0.6,
+   "root_depth": 1.5,
+   "cover": 0.6,
+   "forage": 0.3,
+   "market": 0.65,
+   "hand_ok": false,
+   "climates": [
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    8.0
+   ],
+   "pests": "Flea beetle, blackleg; breaks cereal disease cycles",
+   "roles": [
+    "income",
+    "deep_root"
+   ],
+   "names": {
+    "fr": "Colza d'hiver"
+   },
+   "icon": "🌼"
+  },
+  {
+   "id": "okra",
+   "name": "Okra",
+   "family": "malvaceae",
+   "group": "vegetable",
+   "duration_m": 3,
+   "t_opt": [
+    22,
+    35
+   ],
+   "t_base": 12,
+   "heat_thr": 40,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.5,
+    1.05,
+    0.9
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.2,
+   "n_fix": 0,
+   "n_demand": 60,
+   "residue": 0.3,
+   "root_depth": 1.0,
+   "cover": 0.4,
+   "forage": 0.1,
+   "market": 0.75,
+   "hand_ok": true,
+   "climates": [
+    "tropical"
+   ],
+   "ph": [
+    6.0,
+    7.5
+   ],
+   "pests": "Aphids, fruit borer; needs a nearby market",
+   "roles": [
+    "income"
+   ],
+   "names": {
+    "fr": "Gombo",
+    "tw": "Nkruma",
+    "ha": "Kubewa"
+   },
+   "icon": "🫑"
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "family": "solanaceae",
+   "group": "vegetable",
+   "duration_m": 4,
+   "t_opt": [
+    18,
+    30
+   ],
+   "t_base": 10,
+   "heat_thr": 32,
+   "kill_temp": 0,
+   "overwinter": false,
+   "kc": [
+    0.6,
+    1.15,
+    0.8
+   ],
+   "drought_tol": 0.3,
+   "waterlog_tol": 0.15,
+   "n_fix": 0,
+   "n_demand": 120,
+   "residue": 0.3,
+   "root_depth": 1.0,
+   "cover": 0.4,
+   "forage": 0.1,
+   "market": 0.9,
+   "hand_ok": true,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "ph": [
+    5.5,
+    7.0
+   ],
+   "pests": "Bacterial wilt, Tuta absoluta; best with irrigation",
+   "roles": [
+    "income"
+   ],
+   "names": {
+    "fr": "Tomate",
+    "tw": "Ntoosi",
+    "ha": "Tumatir"
+   },
+   "icon": "🍅"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "staple",
+    "forage"
+   ],
+   "id": "teff",
+   "name": "Teff",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    12,
+    27
+   ],
+   "t_base": 6,
+   "heat_thr": 32,
+   "kill_temp": -2,
+   "kc": [
+    0.3,
+    1.0,
+    0.4
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.6,
+   "n_demand": 60,
+   "residue": 0.6,
+   "root_depth": 0.6,
+   "cover": 0.6,
+   "forage": 0.8,
+   "market": 0.4,
+   "hand_ok": true,
+   "ph": [
+    5.0,
+    8.0
+   ],
+   "pests": "Shoot fly, lodging, heavy weeding",
+   "names": {
+    "fr": "Teff"
+   },
+   "icon": "🌾"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "staple",
+    "drought"
+   ],
+   "id": "finger_millet",
+   "name": "Finger millet",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    16,
+    30
+   ],
+   "t_base": 10,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "kc": [
+    0.3,
+    1.0,
+    0.3
+   ],
+   "drought_tol": 0.7,
+   "waterlog_tol": 0.3,
+   "n_demand": 60,
+   "residue": 0.6,
+   "root_depth": 1.0,
+   "cover": 0.5,
+   "forage": 0.6,
+   "market": 0.6,
+   "hand_ok": true,
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Blast disease, Striga",
+   "names": {
+    "fr": "Éleusine"
+   },
+   "icon": "🌾"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "staple",
+    "income"
+   ],
+   "id": "rice_lowland",
+   "name": "Lowland rice",
+   "family": "poaceae",
+   "group": "cereal",
+   "duration_m": 4,
+   "t_opt": [
+    20,
+    33
+   ],
+   "t_base": 10,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "kc": [
+    1.05,
+    1.2,
+    0.9
+   ],
+   "drought_tol": 0.05,
+   "waterlog_tol": 1.0,
+   "n_demand": 90,
+   "residue": 0.6,
+   "root_depth": 0.4,
+   "cover": 0.5,
+   "forage": 0.4,
+   "market": 0.85,
+   "hand_ok": true,
+   "ph": [
+    5.0,
+    7.0
+   ],
+   "pests": "Rice yellow mottle virus, blast; needs a valley bottom or bunded field",
+   "names": {
+    "fr": "Riz de bas-fond",
+    "tw": "Ɛmo",
+    "ha": "Shinkafa"
+   },
+   "icon": "🍚"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 40,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "nitrogen",
+    "drought",
+    "income"
+   ],
+   "id": "chickpea",
+   "name": "Chickpea",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 4,
+   "t_opt": [
+    15,
+    29
+   ],
+   "t_base": 5,
+   "heat_thr": 32,
+   "kill_temp": -3,
+   "kc": [
+    0.4,
+    1.0,
+    0.35
+   ],
+   "drought_tol": 0.75,
+   "waterlog_tol": 0.15,
+   "n_demand": 20,
+   "residue": 0.3,
+   "root_depth": 1.0,
+   "cover": 0.4,
+   "forage": 0.4,
+   "market": 0.75,
+   "hand_ok": true,
+   "ph": [
+    6.0,
+    8.5
+   ],
+   "pests": "Pod borer (Helicoverpa), Fusarium wilt",
+   "names": {
+    "fr": "Pois chiche"
+   },
+   "icon": "🫘"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 50,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "nitrogen",
+    "income"
+   ],
+   "id": "lentil",
+   "name": "Lentil",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 4,
+   "t_opt": [
+    12,
+    27
+   ],
+   "t_base": 5,
+   "heat_thr": 32,
+   "kill_temp": -5,
+   "kc": [
+    0.4,
+    1.1,
+    0.3
+   ],
+   "drought_tol": 0.7,
+   "waterlog_tol": 0.15,
+   "n_demand": 15,
+   "residue": 0.3,
+   "root_depth": 0.8,
+   "cover": 0.4,
+   "forage": 0.4,
+   "market": 0.7,
+   "hand_ok": true,
+   "ph": [
+    6.0,
+    8.0
+   ],
+   "pests": "Rust, aphids",
+   "names": {
+    "fr": "Lentille"
+   },
+   "icon": "🫘"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 120,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "nitrogen",
+    "income"
+   ],
+   "id": "faba_bean",
+   "name": "Faba bean",
+   "family": "fabaceae",
+   "group": "legume",
+   "duration_m": 5,
+   "t_opt": [
+    10,
+    24
+   ],
+   "t_base": 3,
+   "heat_thr": 28,
+   "kill_temp": -4,
+   "kc": [
+    0.5,
+    1.15,
+    0.6
+   ],
+   "drought_tol": 0.35,
+   "waterlog_tol": 0.4,
+   "n_demand": 20,
+   "residue": 0.5,
+   "root_depth": 0.9,
+   "cover": 0.6,
+   "forage": 0.5,
+   "market": 0.7,
+   "hand_ok": true,
+   "ph": [
+    6.0,
+    8.0
+   ],
+   "pests": "Chocolate spot, aphids",
+   "names": {
+    "fr": "Féverole"
+   },
+   "icon": "🫛"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "income",
+    "staple"
+   ],
+   "id": "potato",
+   "name": "Potato",
+   "family": "solanaceae",
+   "group": "root",
+   "duration_m": 4,
+   "t_opt": [
+    12,
+    24
+   ],
+   "t_base": 5,
+   "heat_thr": 29,
+   "kill_temp": -1,
+   "kc": [
+    0.5,
+    1.15,
+    0.75
+   ],
+   "drought_tol": 0.3,
+   "waterlog_tol": 0.15,
+   "n_demand": 120,
+   "residue": 0.2,
+   "root_depth": 0.5,
+   "cover": 0.6,
+   "forage": 0.1,
+   "market": 0.85,
+   "hand_ok": true,
+   "ph": [
+    5.0,
+    6.5
+   ],
+   "pests": "Late blight, bacterial wilt; shares diseases with tomato and pepper",
+   "names": {
+    "fr": "Pomme de terre",
+    "ha": "Dankalin Turawa"
+   },
+   "icon": "🥔"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "income"
+   ],
+   "id": "onion",
+   "name": "Onion",
+   "family": "amaryllidaceae",
+   "group": "vegetable",
+   "duration_m": 4,
+   "t_opt": [
+    13,
+    28
+   ],
+   "t_base": 6,
+   "heat_thr": 35,
+   "kill_temp": -3,
+   "kc": [
+    0.7,
+    1.05,
+    0.75
+   ],
+   "drought_tol": 0.3,
+   "waterlog_tol": 0.2,
+   "n_demand": 100,
+   "residue": 0.1,
+   "root_depth": 0.4,
+   "cover": 0.2,
+   "forage": 0.0,
+   "market": 0.85,
+   "hand_ok": true,
+   "ph": [
+    6.0,
+    7.5
+   ],
+   "pests": "Thrips, purple blotch; best with irrigation",
+   "names": {
+    "fr": "Oignon",
+    "ha": "Albasa"
+   },
+   "icon": "🧅"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "income"
+   ],
+   "id": "pepper",
+   "name": "Hot pepper",
+   "family": "solanaceae",
+   "group": "vegetable",
+   "duration_m": 5,
+   "t_opt": [
+    20,
+    32
+   ],
+   "t_base": 12,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "kc": [
+    0.6,
+    1.05,
+    0.9
+   ],
+   "drought_tol": 0.35,
+   "waterlog_tol": 0.15,
+   "n_demand": 110,
+   "residue": 0.3,
+   "root_depth": 0.8,
+   "cover": 0.4,
+   "forage": 0.0,
+   "market": 0.85,
+   "hand_ok": true,
+   "ph": [
+    5.5,
+    7.0
+   ],
+   "pests": "Viruses, fruit flies; shares diseases with tomato and potato",
+   "names": {
+    "fr": "Piment",
+    "tw": "Mako",
+    "ha": "Barkono"
+   },
+   "icon": "🌶️"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "income",
+    "deep_root"
+   ],
+   "id": "cotton",
+   "name": "Cotton",
+   "family": "malvaceae",
+   "group": "cash",
+   "duration_m": 6,
+   "t_opt": [
+    20,
+    32
+   ],
+   "t_base": 12,
+   "heat_thr": 38,
+   "kill_temp": 0,
+   "kc": [
+    0.35,
+    1.15,
+    0.6
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.2,
+   "n_demand": 100,
+   "residue": 0.6,
+   "root_depth": 1.5,
+   "cover": 0.5,
+   "forage": 0.3,
+   "market": 0.8,
+   "hand_ok": true,
+   "ph": [
+    5.5,
+    8.0
+   ],
+   "pests": "Bollworms, jassids; usually needs a contract buyer and sprays",
+   "names": {
+    "fr": "Coton",
+    "ha": "Auduga"
+   },
+   "icon": "☁️"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 0,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "staple"
+   ],
+   "id": "cocoyam",
+   "name": "Cocoyam (taro)",
+   "family": "araceae",
+   "group": "root",
+   "duration_m": 9,
+   "t_opt": [
+    21,
+    30
+   ],
+   "t_base": 10,
+   "heat_thr": 36,
+   "kill_temp": 0,
+   "kc": [
+    1.05,
+    1.15,
+    1.1
+   ],
+   "drought_tol": 0.2,
+   "waterlog_tol": 0.9,
+   "n_demand": 60,
+   "residue": 0.3,
+   "root_depth": 0.5,
+   "cover": 0.7,
+   "forage": 0.2,
+   "market": 0.7,
+   "hand_ok": true,
+   "ph": [
+    5.5,
+    6.5
+   ],
+   "pests": "Taro leaf blight, root rot",
+   "names": {
+    "fr": "Taro (macabo)",
+    "tw": "Mankani",
+    "ha": "Gwaza"
+   },
+   "icon": "🍠"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 100,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "forage",
+    "nitrogen",
+    "cover"
+   ],
+   "id": "desmodium",
+   "name": "Desmodium (push-pull)",
+   "family": "fabaceae",
+   "group": "forage",
+   "duration_m": 12,
+   "t_opt": [
+    18,
+    30
+   ],
+   "t_base": 10,
+   "heat_thr": 35,
+   "kill_temp": 0,
+   "kc": [
+    0.6,
+    0.95,
+    0.9
+   ],
+   "drought_tol": 0.6,
+   "waterlog_tol": 0.3,
+   "n_demand": 0,
+   "residue": 0.8,
+   "root_depth": 1.2,
+   "cover": 0.9,
+   "forage": 0.9,
+   "market": 0.35,
+   "hand_ok": true,
+   "ph": [
+    5.0,
+    7.5
+   ],
+   "pests": "Push-pull partner for maize: repels stem borers and fall armyworm, suppresses Striga",
+   "names": {
+    "fr": "Desmodium"
+   },
+   "icon": "🌿"
+  },
+  {
+   "overwinter": false,
+   "n_fix": 150,
+   "climates": [
+    "tropical",
+    "temperate"
+   ],
+   "roles": [
+    "forage",
+    "nitrogen"
+   ],
+   "id": "berseem",
+   "name": "Berseem clover",
+   "family": "fabaceae",
+   "group": "forage",
+   "duration_m": 6,
+   "t_opt": [
+    10,
+    25
+   ],
+   "t_base": 4,
+   "heat_thr": 30,
+   "kill_temp": -4,
+   "kc": [
+    0.4,
+    1.0,
+    0.9
+   ],
+   "drought_tol": 0.3,
+   "waterlog_tol": 0.5,
+   "n_demand": 0,
+   "residue": 0.6,
+   "root_depth": 0.7,
+   "cover": 0.85,
+   "forage": 1.0,
+   "market": 0.5,
+   "hand_ok": true,
+   "ph": [
+    6.5,
+    8.0
+   ],
+   "pests": "Needs irrigation in dry climates",
+   "names": {
+    "fr": "Trèfle d'Alexandrie"
+   },
+   "icon": "☘️"
+  }
+ ]
+}
