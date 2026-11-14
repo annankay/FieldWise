@@ -1,1 +1,1366 @@
-
+{
+ "_note": "Example fields across Africa. Real data comes from NASA via scripts/build_cache.py --all. current_rotation = a typical local system (edit with local knowledge); market = local selling ease 0-1 (defaults from the crop table when missing). 'climatology' blocks are ONLY used to make synthetic development/test data.",
+ "sites": [
+  {
+   "id": "ejura",
+   "name": "Ejura, Ashanti (Ghana)",
+   "lat": 7.385,
+   "lon": -1.356,
+   "climate": "tropical",
+   "farming_system": "Forest-savanna transition, bimodal rains, smallholder maize",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 4
+    },
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 9,
+     "duration_m": 3
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 4
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 9,
+     "duration_m": 3
+    }
+   ],
+   "market": {
+    "maize": 0.85,
+    "cassava": 0.8,
+    "yam": 0.9,
+    "cowpea": 0.75,
+    "soybean": 0.75,
+    "groundnut": 0.8,
+    "okra": 0.7,
+    "tomato": 0.85,
+    "rice_upland": 0.75,
+    "pigeon_pea": 0.35,
+    "mucuna": 0.1,
+    "sesame": 0.5
+   },
+   "climatology": {
+    "rain": [
+     15,
+     45,
+     105,
+     140,
+     160,
+     185,
+     120,
+     85,
+     170,
+     150,
+     45,
+     20
+    ],
+    "tmax": [
+     34,
+     35,
+     34,
+     33,
+     32,
+     30,
+     29,
+     29,
+     30,
+     31,
+     33,
+     33
+    ],
+    "tmin": [
+     21,
+     22,
+     23,
+     23,
+     22,
+     22,
+     21,
+     21,
+     21,
+     21,
+     21,
+     20
+    ],
+    "rh": [
+     55,
+     58,
+     70,
+     77,
+     80,
+     84,
+     85,
+     85,
+     83,
+     80,
+     72,
+     60
+    ],
+    "wind": [
+     1.8,
+     1.9,
+     1.9,
+     1.8,
+     1.6,
+     1.6,
+     1.8,
+     1.9,
+     1.6,
+     1.4,
+     1.4,
+     1.6
+    ],
+    "rad": [
+     17,
+     18,
+     18,
+     18,
+     17,
+     15,
+     13,
+     13,
+     15,
+     17,
+     18,
+     17
+    ],
+    "elev": 230,
+    "slope_pct": 4.0,
+    "temp_sd": 1.3,
+    "warming_per_decade": 0.25,
+    "rain_trend_per_decade": -0.02,
+    "extreme_trend_per_decade": 0.06,
+    "onset_delay_days_per_decade": 3,
+    "grace_trend_cm_yr": -0.12,
+    "grace_amp_cm": 7,
+    "soil": {
+     "clay": 15,
+     "sand": 65,
+     "silt": 20,
+     "soc": 9.0,
+     "ph": 5.8,
+     "bdod": 1.45
+    }
+   }
+  },
+  {
+   "id": "tamale",
+   "name": "Tamale, Northern Region (Ghana)",
+   "lat": 9.405,
+   "lon": -0.853,
+   "climate": "tropical",
+   "farming_system": "Guinea savanna, single rainy season, long dry season",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 6
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 6
+    }
+   ],
+   "market": {
+    "maize": 0.8,
+    "sorghum": 0.65,
+    "millet": 0.55,
+    "cowpea": 0.8,
+    "groundnut": 0.85,
+    "soybean": 0.85,
+    "yam": 0.9,
+    "rice_upland": 0.8,
+    "sesame": 0.7,
+    "bambara": 0.6,
+    "pigeon_pea": 0.4
+   },
+   "climatology": {
+    "rain": [
+     3,
+     8,
+     40,
+     80,
+     115,
+     140,
+     145,
+     190,
+     210,
+     95,
+     12,
+     5
+    ],
+    "tmax": [
+     36,
+     38,
+     39,
+     37,
+     34,
+     32,
+     30,
+     30,
+     31,
+     33,
+     36,
+     36
+    ],
+    "tmin": [
+     20,
+     23,
+     25,
+     25,
+     24,
+     23,
+     22,
+     22,
+     22,
+     22,
+     21,
+     20
+    ],
+    "rh": [
+     30,
+     30,
+     45,
+     62,
+     72,
+     78,
+     82,
+     84,
+     82,
+     75,
+     50,
+     35
+    ],
+    "wind": [
+     2.2,
+     2.2,
+     2.1,
+     2.0,
+     1.9,
+     1.8,
+     1.8,
+     1.7,
+     1.5,
+     1.4,
+     1.7,
+     2.1
+    ],
+    "rad": [
+     19,
+     20,
+     20,
+     20,
+     19,
+     18,
+     16,
+     16,
+     17,
+     19,
+     19,
+     18
+    ],
+    "elev": 180,
+    "slope_pct": 1.5,
+    "temp_sd": 1.4,
+    "warming_per_decade": 0.3,
+    "rain_trend_per_decade": -0.03,
+    "extreme_trend_per_decade": 0.08,
+    "onset_delay_days_per_decade": 4,
+    "grace_trend_cm_yr": -0.15,
+    "grace_amp_cm": 9,
+    "soil": {
+     "clay": 12,
+     "sand": 70,
+     "silt": 18,
+     "soc": 5.0,
+     "ph": 5.9,
+     "bdod": 1.5
+    }
+   }
+  },
+  {
+   "id": "kano",
+   "name": "Kano (Nigeria)",
+   "lat": 12.0,
+   "lon": 8.52,
+   "climate": "tropical",
+   "farming_system": "Sudan savanna: sorghum, millet and cowpea",
+   "staple": "sorghum",
+   "current_rotation": [
+    {
+     "crop": "sorghum",
+     "year": 1,
+     "sow_month": 6
+    },
+    {
+     "crop": "sorghum",
+     "year": 2,
+     "sow_month": 6
+    }
+   ],
+   "market": {
+    "cowpea": 0.85,
+    "groundnut": 0.85,
+    "sorghum": 0.75,
+    "millet": 0.65,
+    "maize": 0.75,
+    "sesame": 0.75,
+    "soybean": 0.75,
+    "onion": 0.85,
+    "pepper": 0.85
+   }
+  },
+  {
+   "id": "segou",
+   "name": "Ségou (Mali)",
+   "lat": 13.43,
+   "lon": -6.26,
+   "climate": "tropical",
+   "farming_system": "Sahel: pearl millet, sorghum, cowpea",
+   "staple": "millet",
+   "current_rotation": [
+    {
+     "crop": "millet",
+     "year": 1,
+     "sow_month": 6
+    },
+    {
+     "crop": "millet",
+     "year": 2,
+     "sow_month": 6
+    }
+   ],
+   "market": {
+    "millet": 0.7,
+    "sorghum": 0.7,
+    "cowpea": 0.8,
+    "groundnut": 0.8,
+    "sesame": 0.75,
+    "rice_lowland": 0.85
+   },
+   "climatology": {
+    "rain": [
+     0,
+     0,
+     1,
+     4,
+     25,
+     75,
+     170,
+     215,
+     120,
+     30,
+     1,
+     0
+    ],
+    "tmax": [
+     33,
+     36,
+     39,
+     41,
+     40,
+     37,
+     33,
+     31,
+     33,
+     36,
+     36,
+     33
+    ],
+    "tmin": [
+     16,
+     19,
+     23,
+     26,
+     27,
+     25,
+     23,
+     22,
+     22,
+     22,
+     19,
+     16
+    ],
+    "rh": [
+     25,
+     22,
+     22,
+     30,
+     45,
+     60,
+     73,
+     80,
+     76,
+     58,
+     35,
+     28
+    ],
+    "wind": [
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     2.8,
+     2.4,
+     2.2,
+     2.2,
+     2.5,
+     2.8
+    ],
+    "rad": [
+     19,
+     21,
+     22,
+     23,
+     23,
+     22,
+     20,
+     19,
+     20,
+     20,
+     19,
+     18
+    ],
+    "elev": 290,
+    "slope_pct": 1.0,
+    "temp_sd": 1.3,
+    "warming_per_decade": 0.3,
+    "rain_trend_per_decade": 0.03,
+    "extreme_trend_per_decade": 0.06,
+    "onset_delay_days_per_decade": 2,
+    "grace_trend_cm_yr": 0.1,
+    "grace_amp_cm": 6,
+    "soil": {
+     "clay": 8,
+     "sand": 78,
+     "silt": 14,
+     "soc": 3.0,
+     "ph": 6.0,
+     "bdod": 1.55
+    }
+   }
+  },
+  {
+   "id": "kaolack",
+   "name": "Kaolack (Senegal)",
+   "lat": 14.15,
+   "lon": -16.07,
+   "climate": "tropical",
+   "farming_system": "Groundnut basin: groundnut and millet",
+   "staple": "millet",
+   "current_rotation": [
+    {
+     "crop": "groundnut",
+     "year": 1,
+     "sow_month": 7
+    },
+    {
+     "crop": "millet",
+     "year": 2,
+     "sow_month": 7
+    }
+   ]
+  },
+  {
+   "id": "bobo",
+   "name": "Bobo-Dioulasso (Burkina Faso)",
+   "lat": 11.18,
+   "lon": -4.3,
+   "climate": "tropical",
+   "farming_system": "Cotton zone: cotton and maize",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "cotton",
+     "year": 1,
+     "sow_month": 6
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 6
+    }
+   ]
+  },
+  {
+   "id": "bafoussam",
+   "name": "Bafoussam (Cameroon)",
+   "lat": 5.48,
+   "lon": 10.42,
+   "climate": "tropical",
+   "farming_system": "Western highlands: maize, beans, potato, cocoyam",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 1,
+     "sow_month": 8
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 2,
+     "sow_month": 8
+    }
+   ]
+  },
+  {
+   "id": "bahirdar",
+   "name": "Bahir Dar (Ethiopia)",
+   "lat": 11.6,
+   "lon": 37.38,
+   "climate": "tropical",
+   "farming_system": "Highland: teff, maize, finger millet",
+   "staple": "teff",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 6
+    },
+    {
+     "crop": "teff",
+     "year": 2,
+     "sow_month": 7
+    }
+   ],
+   "market": {
+    "teff": 0.95,
+    "maize": 0.7,
+    "finger_millet": 0.7,
+    "chickpea": 0.8,
+    "faba_bean": 0.75,
+    "wheat": 0.8,
+    "onion": 0.8
+   },
+   "climatology": {
+    "rain": [
+     3,
+     3,
+     10,
+     25,
+     90,
+     200,
+     420,
+     400,
+     220,
+     90,
+     15,
+     4
+    ],
+    "tmax": [
+     27,
+     29,
+     31,
+     31,
+     30,
+     27,
+     24,
+     24,
+     26,
+     27,
+     27,
+     27
+    ],
+    "tmin": [
+     7,
+     9,
+     11,
+     13,
+     14,
+     14,
+     14,
+     14,
+     13,
+     12,
+     10,
+     7
+    ],
+    "rh": [
+     45,
+     40,
+     38,
+     40,
+     52,
+     68,
+     80,
+     82,
+     76,
+     66,
+     55,
+     48
+    ],
+    "wind": [
+     1.8,
+     1.9,
+     2,
+     2,
+     1.9,
+     1.8,
+     1.6,
+     1.5,
+     1.5,
+     1.6,
+     1.7,
+     1.8
+    ],
+    "rad": [
+     21,
+     22,
+     23,
+     23,
+     22,
+     19,
+     16,
+     17,
+     19,
+     21,
+     21,
+     21
+    ],
+    "elev": 1800,
+    "slope_pct": 3.0,
+    "temp_sd": 1.0,
+    "warming_per_decade": 0.25,
+    "rain_trend_per_decade": 0.0,
+    "extreme_trend_per_decade": 0.05,
+    "onset_delay_days_per_decade": 2,
+    "grace_trend_cm_yr": 0.05,
+    "grace_amp_cm": 10,
+    "soil": {
+     "clay": 50,
+     "sand": 15,
+     "silt": 35,
+     "soc": 15.0,
+     "ph": 6.2,
+     "bdod": 1.25
+    }
+   }
+  },
+  {
+   "id": "nakuru",
+   "name": "Nakuru (Kenya)",
+   "lat": -0.3,
+   "lon": 36.07,
+   "climate": "tropical",
+   "farming_system": "Rift Valley highland: maize and beans, two rainy seasons",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 1,
+     "sow_month": 10,
+     "duration_m": 3
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 2,
+     "sow_month": 10,
+     "duration_m": 3
+    }
+   ],
+   "market": {
+    "maize": 0.8,
+    "common_bean": 0.85,
+    "potato": 0.85,
+    "wheat": 0.75,
+    "desmodium": 0.4
+   },
+   "climatology": {
+    "rain": [
+     30,
+     40,
+     70,
+     130,
+     110,
+     70,
+     90,
+     100,
+     70,
+     50,
+     60,
+     40
+    ],
+    "tmax": [
+     27,
+     28,
+     28,
+     26,
+     24,
+     23,
+     22,
+     23,
+     25,
+     26,
+     25,
+     26
+    ],
+    "tmin": [
+     9,
+     10,
+     11,
+     12,
+     12,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10,
+     9
+    ],
+    "rh": [
+     55,
+     52,
+     56,
+     68,
+     72,
+     70,
+     70,
+     70,
+     64,
+     62,
+     68,
+     62
+    ],
+    "wind": [
+     2.5,
+     2.6,
+     2.6,
+     2.4,
+     2.2,
+     2.2,
+     2.3,
+     2.4,
+     2.5,
+     2.5,
+     2.4,
+     2.4
+    ],
+    "rad": [
+     23,
+     23,
+     22,
+     20,
+     19,
+     18,
+     17,
+     18,
+     21,
+     22,
+     21,
+     22
+    ],
+    "elev": 1850,
+    "slope_pct": 4.0,
+    "temp_sd": 0.9,
+    "warming_per_decade": 0.2,
+    "rain_trend_per_decade": 0.03,
+    "extreme_trend_per_decade": 0.06,
+    "onset_delay_days_per_decade": 1,
+    "grace_trend_cm_yr": 0.2,
+    "grace_amp_cm": 6,
+    "soil": {
+     "clay": 30,
+     "sand": 40,
+     "silt": 30,
+     "soc": 18.0,
+     "ph": 6.5,
+     "bdod": 1.2
+    }
+   }
+  },
+  {
+   "id": "mbale",
+   "name": "Mbale (Uganda)",
+   "lat": 1.08,
+   "lon": 34.18,
+   "climate": "tropical",
+   "farming_system": "Two rainy seasons: maize, beans, cassava",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 1,
+     "sow_month": 8
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 3
+    },
+    {
+     "crop": "common_bean",
+     "year": 2,
+     "sow_month": 8
+    }
+   ]
+  },
+  {
+   "id": "musanze",
+   "name": "Musanze (Rwanda)",
+   "lat": -1.5,
+   "lon": 29.63,
+   "climate": "tropical",
+   "farming_system": "Volcanic highland: potato and beans",
+   "staple": "potato",
+   "current_rotation": [
+    {
+     "crop": "potato",
+     "year": 1,
+     "sow_month": 9
+    },
+    {
+     "crop": "common_bean",
+     "year": 1,
+     "sow_month": 2
+    },
+    {
+     "crop": "potato",
+     "year": 2,
+     "sow_month": 9
+    },
+    {
+     "crop": "common_bean",
+     "year": 2,
+     "sow_month": 2
+    }
+   ]
+  },
+  {
+   "id": "morogoro",
+   "name": "Morogoro (Tanzania)",
+   "lat": -6.82,
+   "lon": 37.66,
+   "climate": "tropical",
+   "farming_system": "Maize, rice and sesame",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 3
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 3
+    }
+   ]
+  },
+  {
+   "id": "lilongwe",
+   "name": "Lilongwe (Malawi)",
+   "lat": -13.98,
+   "lon": 33.78,
+   "climate": "tropical",
+   "farming_system": "Plateau: continuous maize, some groundnut",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 12
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 12
+    }
+   ],
+   "market": {
+    "maize": 0.75,
+    "groundnut": 0.85,
+    "soybean": 0.85,
+    "pigeon_pea": 0.7,
+    "cowpea": 0.7,
+    "sweet_potato": 0.6
+   },
+   "climatology": {
+    "rain": [
+     210,
+     190,
+     130,
+     40,
+     5,
+     1,
+     0,
+     0,
+     1,
+     10,
+     80,
+     200
+    ],
+    "tmax": [
+     27,
+     27,
+     27,
+     27,
+     25,
+     23,
+     23,
+     25,
+     28,
+     30,
+     30,
+     28
+    ],
+    "tmin": [
+     17,
+     17,
+     16,
+     14,
+     11,
+     8,
+     8,
+     9,
+     12,
+     15,
+     17,
+     17
+    ],
+    "rh": [
+     80,
+     80,
+     77,
+     72,
+     65,
+     60,
+     57,
+     52,
+     47,
+     46,
+     58,
+     76
+    ],
+    "wind": [
+     2.5,
+     2.4,
+     2.4,
+     2.6,
+     2.8,
+     2.9,
+     3,
+     3.1,
+     3.2,
+     3,
+     2.8,
+     2.6
+    ],
+    "rad": [
+     20,
+     20,
+     20,
+     19,
+     17,
+     16,
+     17,
+     19,
+     22,
+     24,
+     23,
+     21
+    ],
+    "elev": 1050,
+    "slope_pct": 2.5,
+    "temp_sd": 1.1,
+    "warming_per_decade": 0.25,
+    "rain_trend_per_decade": -0.02,
+    "extreme_trend_per_decade": 0.05,
+    "onset_delay_days_per_decade": 3,
+    "grace_trend_cm_yr": -0.1,
+    "grace_amp_cm": 8,
+    "soil": {
+     "clay": 25,
+     "sand": 55,
+     "silt": 20,
+     "soc": 9.0,
+     "ph": 5.6,
+     "bdod": 1.4
+    }
+   }
+  },
+  {
+   "id": "chipata",
+   "name": "Chipata (Zambia)",
+   "lat": -13.63,
+   "lon": 32.65,
+   "climate": "tropical",
+   "farming_system": "Maize, groundnut, cotton",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 12
+    },
+    {
+     "crop": "groundnut",
+     "year": 2,
+     "sow_month": 12
+    }
+   ]
+  },
+  {
+   "id": "nampula",
+   "name": "Nampula (Mozambique)",
+   "lat": -15.12,
+   "lon": 39.27,
+   "climate": "tropical",
+   "farming_system": "Cassava, maize and pigeon pea",
+   "staple": "cassava",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 12
+    },
+    {
+     "crop": "cassava",
+     "year": 2,
+     "sow_month": 1
+    }
+   ]
+  },
+  {
+   "id": "bulawayo",
+   "name": "Bulawayo (Zimbabwe)",
+   "lat": -20.15,
+   "lon": 28.58,
+   "climate": "tropical",
+   "farming_system": "Semi-arid: maize, sorghum, livestock",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 11
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 11
+    }
+   ]
+  },
+  {
+   "id": "bethlehem",
+   "name": "Bethlehem (South Africa)",
+   "lat": -28.23,
+   "lon": 28.31,
+   "climate": "temperate",
+   "farming_system": "Highveld: maize and soybean",
+   "staple": "maize",
+   "current_rotation": [
+    {
+     "crop": "maize",
+     "year": 1,
+     "sow_month": 11
+    },
+    {
+     "crop": "soybean",
+     "year": 2,
+     "sow_month": 11
+    }
+   ]
+  },
+  {
+   "id": "meknes",
+   "name": "Meknès (Morocco)",
+   "lat": 33.9,
+   "lon": -5.55,
+   "climate": "temperate",
+   "farming_system": "Mediterranean: wheat and food legumes",
+   "staple": "wheat",
+   "current_rotation": [
+    {
+     "crop": "wheat",
+     "year": 1,
+     "sow_month": 11
+    },
+    {
+     "crop": "wheat",
+     "year": 2,
+     "sow_month": 11
+    }
+   ],
+   "market": {
+    "wheat": 0.8,
+    "barley": 0.65,
+    "chickpea": 0.85,
+    "lentil": 0.85,
+    "faba_bean": 0.75,
+    "onion": 0.8,
+    "berseem": 0.6
+   },
+   "climatology": {
+    "rain": [
+     60,
+     60,
+     55,
+     50,
+     25,
+     8,
+     1,
+     2,
+     12,
+     45,
+     70,
+     70
+    ],
+    "tmax": [
+     16,
+     17,
+     20,
+     22,
+     26,
+     31,
+     35,
+     35,
+     30,
+     25,
+     20,
+     17
+    ],
+    "tmin": [
+     5,
+     6,
+     7,
+     9,
+     12,
+     15,
+     18,
+     18,
+     16,
+     12,
+     8,
+     6
+    ],
+    "rh": [
+     76,
+     74,
+     70,
+     66,
+     62,
+     55,
+     48,
+     50,
+     58,
+     65,
+     72,
+     76
+    ],
+    "wind": [
+     2.5,
+     2.6,
+     2.7,
+     2.7,
+     2.6,
+     2.6,
+     2.7,
+     2.6,
+     2.4,
+     2.3,
+     2.4,
+     2.5
+    ],
+    "rad": [
+     10,
+     13,
+     17,
+     21,
+     24,
+     26,
+     27,
+     25,
+     20,
+     15,
+     11,
+     9
+    ],
+    "elev": 550,
+    "slope_pct": 3.0,
+    "temp_sd": 1.6,
+    "warming_per_decade": 0.3,
+    "rain_trend_per_decade": -0.04,
+    "extreme_trend_per_decade": 0.04,
+    "onset_delay_days_per_decade": 0,
+    "grace_trend_cm_yr": -0.5,
+    "grace_amp_cm": 4,
+    "soil": {
+     "clay": 30,
+     "sand": 30,
+     "silt": 40,
+     "soc": 12.0,
+     "ph": 7.8,
+     "bdod": 1.35
+    }
+   }
+  },
+  {
+   "id": "fayoum",
+   "name": "Fayoum (Egypt)",
+   "lat": 29.3,
+   "lon": 30.84,
+   "climate": "temperate",
+   "farming_system": "Irrigated Nile oasis: wheat, berseem, maize",
+   "staple": "wheat",
+   "current_rotation": [
+    {
+     "crop": "wheat",
+     "year": 1,
+     "sow_month": 11
+    },
+    {
+     "crop": "maize",
+     "year": 2,
+     "sow_month": 6
+    },
+    {
+     "crop": "berseem",
+     "year": 2,
+     "sow_month": 11
+    }
+   ],
+   "climatology": {
+    "rain": [
+     2,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     2
+    ],
+    "tmax": [
+     20,
+     22,
+     25,
+     30,
+     34,
+     36,
+     36,
+     36,
+     34,
+     31,
+     26,
+     21
+    ],
+    "tmin": [
+     6,
+     7,
+     10,
+     13,
+     17,
+     20,
+     21,
+     21,
+     19,
+     16,
+     11,
+     7
+    ],
+    "rh": [
+     55,
+     50,
+     45,
+     38,
+     35,
+     38,
+     45,
+     50,
+     52,
+     52,
+     55,
+     57
+    ],
+    "wind": [
+     3,
+     3.2,
+     3.5,
+     3.6,
+     3.5,
+     3.4,
+     3.2,
+     3,
+     3,
+     2.9,
+     2.8,
+     2.9
+    ],
+    "rad": [
+     13,
+     16,
+     20,
+     24,
+     26,
+     28,
+     28,
+     26,
+     23,
+     19,
+     15,
+     12
+    ],
+    "elev": 20,
+    "slope_pct": 0.5,
+    "temp_sd": 1.5,
+    "warming_per_decade": 0.35,
+    "rain_trend_per_decade": 0,
+    "extreme_trend_per_decade": 0,
+    "onset_delay_days_per_decade": 0,
+    "grace_trend_cm_yr": -0.3,
+    "grace_amp_cm": 2,
+    "soil": {
+     "clay": 35,
+     "sand": 30,
+     "silt": 35,
+     "soc": 8.0,
+     "ph": 8.0,
+     "bdod": 1.3
+    }
+   }
+  }
+ ]
+}
