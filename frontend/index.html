@@ -1,1 +1,378 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FieldWise</title>
+  <meta name="description" content="NASA satellite and climate data turned into crop-rotation options a farmer can read in 30 seconds.">
+  <meta name="theme-color" content="#2b1d14">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="farmer-view">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="top">
+  <button class="brand" id="homeBtn" aria-label="FieldWise home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#4c9a5b"/><path d="M6 27 C14 22 26 22 34 27 L34 34 L6 34 Z" fill="#8a6448"/><path d="M20 26 C20 18 14 14 10 13 C11 19 15 23 20 26 Z" fill="#e5f2e6"/><path d="M20 26 C20 17 26 12 31 11 C30 18 25 23 20 26 Z" fill="#fff"/><circle cx="29" cy="9" r="3" fill="#e0a32e"/></svg>
+    <span class="name">FieldWise</span>
+  </button>
+  <div class="top-field" id="topField" hidden>
+    <span class="dot" aria-hidden="true">📍</span><span id="topFieldName"></span>
+  </div>
+  <div class="top-tools">
+    <div class="seg" role="group" aria-label="View">
+      <button data-view="farmer" class="on" data-i18n="view_farmer">Farmer</button>
+      <button data-view="expert" data-i18n="view_expert">Expert</button>
+    </div>
+    <label class="lang"><span class="sr" data-i18n="language">Language</span>
+      <select id="langSelect" aria-label="Language">
+        <option value="en">English</option><option value="fr">Français</option>
+        <option value="tw">Twi</option><option value="ha">Hausa</option>
+      </select></label>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Sections" hidden>
+  <button data-tab="farm" class="on"><span class="ic">🧑🏾‍🌾</span><span data-i18n="tab_farm">My farm</span></button>
+  <button data-tab="story"><span class="ic">🌦️</span><span data-i18n="tab_story">Weather story</span></button>
+  <button data-tab="options"><span class="ic">🔄</span><span data-i18n="tab_options">Options</span></button>
+  <button data-tab="map"><span class="ic">🛰️</span><span data-i18n="tab_map">Map</span></button>
+  <button data-tab="whatif"><span class="ic">❓</span><span data-i18n="tab_whatif">What if?</span></button>
+  <button data-tab="learn"><span class="ic">📘</span><span data-i18n="tab_learn">Learn</span></button>
+</nav>
+
+<div id="banner" class="banner" hidden></div>
+
+<main id="main">
+  <!-- ================= START ================= -->
+  <section class="screen on" id="s-start">
+    <div class="hero">
+      <h1 data-i18n="start_title">Find your field</h1>
+      <p class="lead" data-i18n="start_lead">FieldWise reads 35 years of NASA weather and satellite records for your exact field, then shows crop rotations that protect your soil, save water and fit your goals.</p>
+    </div>
+    <div class="start-grid">
+      <div class="card">
+        <form class="search" id="searchForm" role="search">
+          <input type="search" id="searchInput" autocomplete="off" data-i18n-ph="search_ph" placeholder="Town or village, e.g. Ejura">
+          <button class="btn primary" type="submit" data-i18n="search">Search</button>
+        </form>
+        <div class="row gap">
+          <button class="btn ghost" id="gpsBtn"><span aria-hidden="true">📍</span> <span data-i18n="use_location">Use my location</span></button>
+          <span class="muted small" data-i18n="tap_map">or tap your field on the map</span>
+        </div>
+        <ul class="search-results" id="searchResults"></ul>
+        <div id="startMap" class="map start-map"></div>
+        <div class="pin-box" id="pinBox" hidden>
+          <label class="field-label" for="fieldName" data-i18n="name_field">Name this field</label>
+          <div class="row gap wrap">
+            <input type="text" id="fieldName" maxlength="60" data-i18n-ph="name_ph" placeholder="e.g. Kofi's maize plot">
+            <button class="btn primary big" id="getDataBtn" data-i18n="get_data">Get NASA data for this field</button>
+          </div>
+          <p class="muted small" id="pinCoords"></p>
+        </div>
+      </div>
+      <div class="side">
+        <div class="card" id="savedBox" hidden>
+          <h3 data-i18n="my_fields">My fields</h3>
+          <ul class="field-list" id="savedList"></ul>
+        </div>
+        <div class="card" id="refBox" hidden>
+          <h3 data-i18n="examples">Example fields</h3>
+          <ul class="field-list" id="refList"></ul>
+        </div>
+        <div class="card soft">
+          <h3 data-i18n="how_title">How it works</h3>
+          <ol class="steps">
+            <li data-i18n="how_1">Find your field on the map.</li>
+            <li data-i18n="how_2">Tell us what you grow and what matters to you.</li>
+            <li data-i18n="how_3">See 3–4 rotation options, why each fits, and what to check.</li>
+            <li data-i18n="how_4">Talk it through with your extension officer.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOADING NEW FIELD ================= -->
+  <section class="screen" id="s-loading">
+    <div class="card loading-card">
+      <h2 data-i18n="loading_title">Getting NASA data for your field</h2>
+      <p class="muted" data-i18n="loading_lead">The first part takes about a minute. Satellite layers keep arriving in the background.</p>
+      <ol class="progress-steps" id="progressSteps">
+        <li data-step="weather"><span class="ps-ic">🌧️</span><span data-i18n="ps_weather">35 years of daily weather (NASA POWER)</span></li>
+        <li data-step="soil"><span class="ps-ic">🟤</span><span data-i18n="ps_soil">Soil of your field</span></li>
+        <li data-step="ready"><span class="ps-ic">✅</span><span data-i18n="ps_ready">Ready to plan</span></li>
+        <li data-step="satellite"><span class="ps-ic">🛰️</span><span data-i18n="ps_sat">Satellite layers</span> <span id="satCount"></span></li>
+      </ol>
+      <p class="muted small" id="progressMsg"></p>
+      <p class="error" id="progressErr" hidden></p>
+    </div>
+  </section>
+
+  <!-- ================= MY FARM (wizard) ================= -->
+  <section class="screen" id="s-farm">
+    <div class="wizard-head">
+      <h2 id="farmTitle" data-i18n="farm_title">Tell us about your farm</h2>
+      <ol class="wsteps" id="wsteps">
+        <li class="on" data-w="1"><span>1</span><b data-i18n="w1">What you grow</b></li>
+        <li data-w="2"><span>2</span><b data-i18n="w2">What matters</b></li>
+        <li data-w="3"><span>3</span><b data-i18n="w3">Your situation</b></li>
+      </ol>
+    </div>
+
+    <div class="wpanel on" data-w="1">
+      <div class="card">
+        <div class="notice-box" id="noRainBox" hidden><b data-i18n="no_rain_title">Rain alone cannot grow crops here</b><br><span data-i18n="no_rain_help"></span></div>
+        <h3 data-i18n="grow_q">What do you grow over two years?</h3>
+        <p class="muted" data-i18n="grow_help">Tap a crop, then tap the month you sow it. Add as many sowings as you make.</p>
+        <div class="strip-wrap" id="currentStrip" aria-label="Your current rotation"></div>
+        <ul class="chips planted" id="plantedList"></ul>
+        <div class="picker">
+          <div class="crop-grid" id="cropGrid"></div>
+          <div class="month-pick" id="monthPick" hidden>
+            <p><b id="pickCropName"></b> · <span data-i18n="sow_when">When do you sow it?</span></p>
+            <div class="year-toggle seg"><button data-y="1" class="on" data-i18n="year1">Year 1</button><button data-y="2" data-i18n="year2">Year 2</button><button data-y="both" data-i18n="both_years">Both years</button></div>
+            <label class="small with-row" id="withRow"><span data-i18n="grown_with">Grown together with (intercrop)</span>
+              <select id="withSelect"></select></label>
+            <div class="months" id="monthButtons"></div>
+            <p class="muted small" id="fitHint"></p>
+          </div>
+        </div>
+        <button class="btn ghost small" id="clearPlan" data-i18n="clear">Start again</button>
+      </div>
+      <div class="wnav"><span></span><button class="btn primary big" data-next="2" data-i18n="next">Next</button></div>
+    </div>
+
+    <div class="wpanel" data-w="2">
+      <div class="card">
+        <h3 data-i18n="matter_q">What matters most to you?</h3>
+        <p class="muted" data-i18n="matter_help">Pick up to 3. We rank the options by what you choose.</p>
+        <div class="goal-grid" id="goalGrid"></div>
+        <div class="expert-only" id="prioSliders"></div>
+      </div>
+      <div class="wnav"><button class="btn ghost" data-next="1" data-i18n="back">Back</button><button class="btn primary big" data-next="3" data-i18n="next">Next</button></div>
+    </div>
+
+    <div class="wpanel" data-w="3">
+      <div class="card">
+        <h3 data-i18n="water_q">How much water can you give your crops in dry months?</h3>
+        <div class="choice-grid" id="waterChoices">
+          <button data-water="none"><span>🌧️</span><b data-i18n="water_none">Rain only</b></button>
+          <button data-water="little"><span>🪣</span><b data-i18n="water_little">A little</b><small data-i18n="water_little_d">watering can, small pond</small></button>
+          <button data-water="some"><span>🚿</span><b data-i18n="water_some">Some</b><small data-i18n="water_some_d">pump for part of the field</small></button>
+          <button data-water="full"><span>💧</span><b data-i18n="water_full">Full irrigation</b></button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="tools_q">What do you farm with?</h3>
+        <div class="choice-grid three" id="toolChoices">
+          <button data-tool="hand"><span>🔨</span><b data-i18n="tool_hand">Hand tools</b></button>
+          <button data-tool="animal"><span>🐂</span><b data-i18n="tool_animal">Animals</b></button>
+          <button data-tool="tractor"><span>🚜</span><b data-i18n="tool_tractor">Tractor</b></button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="staple_q">Keep your main food crop?</h3>
+        <label class="switch big"><input type="checkbox" id="keepStaple" checked> <span data-i18n="staple_keep">Yes, keep growing it in its usual season</span></label>
+        <select id="stapleSelect" aria-label="Main crop"></select>
+      </div>
+      <div class="card">
+        <h3 data-i18n="sell_q">Which crops can you sell nearby?</h3>
+        <p class="muted small" data-i18n="sell_help">Tap to change: 👍 good price · 👌 low price · ✖️ no buyer · ❔ not sure</p>
+        <div class="sell-grid" id="sellGrid"></div>
+      </div>
+      <details class="card">
+        <summary><b data-i18n="soiltest_q">I have a soil test (optional)</b></summary>
+        <p class="muted small" data-i18n="soiltest_help">Your own soil test is more accurate than satellite soil maps.</p>
+        <div class="soil-form">
+          <label>pH <input type="number" step="0.1" min="3" max="10" id="stPh"></label>
+          <label><span data-i18n="st_soc">Organic carbon (g/kg)</span> <input type="number" step="0.5" min="0" max="200" id="stSoc"></label>
+          <label><span data-i18n="st_clay">Clay %</span> <input type="number" step="1" min="0" max="100" id="stClay"></label>
+          <label><span data-i18n="st_sand">Sand %</span> <input type="number" step="1" min="0" max="100" id="stSand"></label>
+        </div>
+      </details>
+      <div class="expert-only card">
+        <h3 data-i18n="avoid_q">Crops I will not grow</h3>
+        <div class="chips selectable" id="avoidChips"></div>
+      </div>
+      <div class="wnav"><button class="btn ghost" data-next="2" data-i18n="back">Back</button><button class="btn primary big" id="showOptions" data-i18n="show_options">Show my options</button></div>
+    </div>
+  </section>
+
+  <!-- ================= WEATHER STORY ================= -->
+  <section class="screen" id="s-story">
+    <div class="section-head"><h2 data-i18n="story_title">Your field's weather story</h2><p class="muted" id="storySub"></p></div>
+    <div class="big-facts" id="bigFacts"></div>
+    <ul class="headline" id="headline"></ul>
+
+    <div class="card">
+      <h3 data-i18n="cropvs_title">Your crops vs. the weather</h3>
+      <p class="muted small" data-i18n="cropvs_help">Each bar is one crop you grow. Colour shows how risky the weather is at that stage. Tap a block to see why.</p>
+      <div id="cropRisk"></div>
+      <div class="cal-legend"><span><i class="lvl-0"></i><span data-i18n="risk0">safe</span></span><span><i class="lvl-1"></i><span data-i18n="risk1">some risk</span></span><span><i class="lvl-2"></i><span data-i18n="risk2">high</span></span><span><i class="lvl-3"></i><span data-i18n="risk3">very high</span></span></div>
+      <p class="tap-detail" id="cropRiskDetail" aria-live="polite"></p>
+    </div>
+
+    <div class="card scroll-x">
+      <h3 data-i18n="cal_title">Month by month</h3>
+      <table class="calendar" id="calendar"></table>
+      <p class="tap-detail" id="calDetail" aria-live="polite"></p>
+    </div>
+
+    <div class="grid two">
+      <div class="card"><h3 data-i18n="rain_vs_need">Rain vs. what crops need</h3><p class="muted small" data-i18n="rain_vs_need_help">Green bars = rain. Red line = water crops could use. Bars below the line mean crops live on stored soil water.</p><div class="chart-box"><canvas id="chRainEt"></canvas></div></div>
+      <div class="card"><h3 data-i18n="green_title">When the land is green</h3><p class="muted small" id="phenoNote"></p><div class="chart-box"><canvas id="chGreen"></canvas></div></div>
+    </div>
+
+    <h3 class="sub" data-i18n="changing_title">What is changing</h3>
+    <div class="grid auto" id="trendCards"></div>
+
+    <div class="grid two">
+      <div class="card"><h3 data-i18n="grace_title">Underground water (GRACE)</h3><p class="muted small" data-i18n="grace_help">Water stored in soil and groundwater for the whole region. A falling line means the region is drying.</p><div class="chart-box"><canvas id="chGrace"></canvas></div></div>
+      <div class="card"><h3 data-i18n="events_title">Floods, droughts and storms nearby (NASA EONET)</h3><ul class="events" id="eventsList"></ul></div>
+    </div>
+
+    <div class="expert-only">
+      <div class="grid two">
+        <div class="card"><h3>Rain records compared (POWER vs GPM)</h3><p class="muted small" id="agreeText"></p><div class="chart-box"><canvas id="chRainCompare"></canvas></div></div>
+        <div class="card"><h3>AI season detection vs. fixed rule</h3><div id="phenoBox"></div><div class="chart-box short"><canvas id="chPheno"></canvas></div></div>
+      </div>
+      <div class="grid two">
+        <div class="card"><h3>Kinds of year (k-means)</h3><div id="yearTypes"></div></div>
+        <div class="card"><h3>What stresses crops here? (model comparison)</h3><div id="stressBox"></div><div class="chart-box short"><canvas id="chDrivers"></canvas></div></div>
+      </div>
+      <div class="card"><h3>Biomass and plant water stress</h3><div id="bioBox" class="kv-grid"></div></div>
+    </div>
+
+    <div class="card scroll-x">
+      <h3 data-i18n="explorer_title">Which crops suit this field, and when to sow</h3>
+      <p class="muted small" data-i18n="explorer_help">Darker green = better fit when sown in that month.</p>
+      <table class="data" id="cropExplorer"></table>
+    </div>
+  </section>
+
+  <!-- ================= OPTIONS ================= -->
+  <section class="screen" id="s-options">
+    <div class="section-head">
+      <h2 data-i18n="options_title">Rotation options for your field</h2>
+      <p class="muted" id="optionsSub"></p>
+    </div>
+    <div class="options" id="options"></div>
+
+    <div class="card planner" id="planner">
+      <h3><span aria-hidden="true">✏️</span> <span data-i18n="planner_title">Make your own plan</span></h3>
+      <p class="muted small" data-i18n="planner_help">Start from any option, then change crops or months. The score updates as you go.</p>
+      <div class="row gap wrap">
+        <label class="small"><span data-i18n="start_from">Start from</span> <select id="plannerBase"></select></label>
+      </div>
+      <div class="strip-wrap" id="plannerStrip"></div>
+      <ul class="chips planted" id="plannerList"></ul>
+      <div class="row gap wrap">
+        <select id="plannerCrop" aria-label="Crop"></select>
+        <select id="plannerYear" aria-label="Year"><option value="1">Y1</option><option value="2">Y2</option></select>
+        <select id="plannerMonth" aria-label="Month"></select>
+        <select id="plannerWith" aria-label="Intercrop"></select>
+        <button class="btn ghost small" id="plannerAdd" data-i18n="add">Add</button>
+      </div>
+      <div id="plannerResult" class="planner-result" aria-live="polite"></div>
+    </div>
+
+    <div class="card expert-only scroll-x"><h3>Scores side by side (0–100)</h3><table class="data" id="scoreTable"></table></div>
+  </section>
+
+  <!-- ================= MAP / TIME MACHINE ================= -->
+  <section class="screen" id="s-map">
+    <div class="section-head"><h2 data-i18n="map_title">Satellite time machine</h2><p class="muted" data-i18n="map_help">See your area through NASA satellites. Move the slider to go back in time, or compare two years.</p></div>
+    <div class="card">
+      <div class="layer-chips" id="layerChips"></div>
+      <div class="time-row">
+        <button class="btn ghost small" id="playBtn" aria-label="Play">▶</button>
+        <input type="range" id="timeSlider" min="0" max="0" value="0" aria-label="Date">
+        <b id="timeLabel"></b>
+      </div>
+      <div class="row gap wrap">
+        <label class="switch"><input type="checkbox" id="compareToggle"> <span data-i18n="compare_years">Compare two years</span></label>
+        <span id="compareCtl" hidden><select id="yearA"></select> vs <select id="yearB"></select></span>
+      </div>
+      <div class="maps" id="mapsWrap">
+        <div class="map-col"><div class="map-cap" id="capA"></div><div id="mapA" class="map tm-map"></div></div>
+        <div class="map-col" id="colB" hidden><div class="map-cap" id="capB"></div><div id="mapB" class="map tm-map"></div></div>
+      </div>
+      <div class="legend-row"><img id="legendImg" alt="" hidden><span class="muted small" id="layerAbout"></span></div>
+      <p class="muted small" id="imageryNote"></p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="zones_title">Problem spots on your field</h3>
+      <div class="layer-chips" id="zoneChips"></div>
+      <div id="zoneMap" class="map zone-map"></div>
+      <div class="legend-bar"><span data-i18n="low">low</span><span class="ramp"></span><span data-i18n="high">high</span></div>
+      <p class="muted small" id="zoneNote"></p>
+    </div>
+  </section>
+
+  <!-- ================= WHAT IF ================= -->
+  <section class="screen" id="s-whatif">
+    <div class="section-head"><h2 data-i18n="whatif_title">What if the weather changes?</h2><p class="muted" data-i18n="whatif_help">Choose a future. We re-run 35 years of weather and see which plan still holds up.</p></div>
+    <div class="choice-grid" id="presetGrid">
+      <button data-preset="-15,1.5,20"><span>🔥</span><b data-i18n="p_drier">Drier and hotter</b></button>
+      <button data-preset="-30,1,0"><span>🏜️</span><b data-i18n="p_drought">Bad drought</b></button>
+      <button data-preset="10,1.5,40"><span>⛈️</span><b data-i18n="p_storms">Wetter, violent storms</b></button>
+      <button data-preset="0,3,0"><span>🌡️</span><b data-i18n="p_heat">Much hotter (+3°C)</b></button>
+    </div>
+    <div class="card expert-only">
+      <div class="sliders3">
+        <label><span data-i18n="rain_change">Rain change</span> <b id="rainV">0%</b><input type="range" id="rainS" min="-40" max="30" step="5" value="0"></label>
+        <label><span data-i18n="warming">Warming</span> <b id="tempV">+0.0°C</b><input type="range" id="tempS" min="0" max="4" step="0.5" value="0"></label>
+        <label><span data-i18n="storms">Heavier storms</span> <b id="stormV">+0%</b><input type="range" id="stormS" min="0" max="60" step="10" value="0"></label>
+        <button class="btn primary" id="runWhatIf" data-i18n="run">Run</button>
+      </div>
+    </div>
+    <div id="whatifResults" hidden>
+      <div class="card"><h3 data-i18n="wi_changes">How the weather changes</h3><div class="delta-chips" id="deltaChips"></div></div>
+      <div class="card"><h3 data-i18n="wi_which">Which plan still works?</h3><div id="rankList"></div></div>
+      <div class="grid two expert-only">
+        <div class="card"><h3>Scores before vs after</h3><div class="chart-box"><canvas id="chWhatIf"></canvas></div></div>
+        <div class="card"><h3>Chance crops look stressed</h3><div class="chart-box"><canvas id="chStressShift"></canvas></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEARN ================= -->
+  <section class="screen" id="s-learn">
+    <div class="section-head"><h2 data-i18n="learn_title">Learn and trust the data</h2></div>
+    <div class="card trust">
+      <h3 data-i18n="trust_title">This tool supports you. It does not decide for you.</h3>
+      <ul id="trustList"></ul>
+    </div>
+    <div class="grid auto" id="glossary"></div>
+    <div class="card scroll-x"><h3 data-i18n="sources_title">Data used for this field</h3><table class="data" id="sourcesTable"></table></div>
+    <div class="grid two">
+      <div class="card"><h3 data-i18n="uncert_title">How sure is FieldWise?</h3><ul id="uncertList" class="small"></ul></div>
+      <div class="card"><h3 data-i18n="gauge_title">Add your own rain gauge</h3>
+        <p class="small" data-i18n="gauge_help">Satellites see a 10–50 km average; a gauge sees your exact spot. Upload a CSV with columns date,rain_mm.</p>
+        <input type="file" id="gaugeFile" accept=".csv"><div id="gaugeResult" class="small"></div>
+        <p class="muted small"><a href="/static/sample_rain_gauge.csv" download data-i18n="sample_file">Sample file</a></p></div>
+    </div>
+    <div class="card expert-only"><h3>How the tool decides</h3><ul class="small" id="methodList"></ul></div>
+  </section>
+</main>
+
+<footer class="disclaimer" data-i18n="disclaimer">FieldWise supports your decisions. Always check with your extension officer before changing what you grow.</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="loading-overlay" id="loading" hidden><div class="box"><span class="spinner"></span><span id="loadingText"></span></div></div>
+<dialog id="modal"><div id="modalBody"></div><form method="dialog"><button class="btn ghost" data-i18n="close">Close</button></form></dialog>
+
+<script src="/static/vendor/leaflet/leaflet.js"></script>
+<script src="/static/vendor/chart.umd.js"></script>
+<script src="/static/i18n.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
