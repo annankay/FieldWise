@@ -1,6 +1,6 @@
 /* FieldWise interface text.
  * English and French are complete. Twi and Hausa are DRAFTS for the most important buttons and
- * labels: a native speaker must review them before launch. Any missing text falls back to English.
+ 
  */
 window.MONTHS = {
   en: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
