@@ -1,1 +1,16 @@
+{
+  "name": "FieldWise — crop rotations from NASA data",
+  "short_name": "FieldWise",
+  "description": "NASA satellite and climate data turned into crop-rotation options for your field.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#2b1d14",
+  "icons": [
+    {"src": "/static/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/static/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
+    {"src": "/static/icons/icon.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
 
